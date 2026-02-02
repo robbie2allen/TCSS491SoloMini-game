@@ -5,11 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            //ignore: "url": "file:///C:/Users/robod/OneDrive/Documents/GitHub/TCSS491Game/index.html",
+            "url": "file:///C:/Users/robod/CS/tcss491/TCSS491SoloMini-game/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

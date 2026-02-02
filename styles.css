@@ -3,11 +3,11 @@ html {
 }
 
 body {
-  background-color: #28294c;
+  background-color: #73769e;
 }
 
 .container {
-  padding-top: 9.6rem;
+  padding-top: 0.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
