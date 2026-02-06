@@ -20,7 +20,10 @@ ASSET_MANAGER.downloadAll(() => {
 	gameEngine.addSystem(new RenderSystem());
 
 	//Add entities
-	gameEngine.addEntity(createPlayer(275, 425, 275, 425));
+	gameEngine.addEntity(createPlayer(275, 595, 275, 425));
+	gameEngine.addEntity(createBox(475, 595));
+	gameEngine.addEntity(createBox(675, 595));
+	gameEngine.addEntity(createBox(675, 531));
 	gameEngine.addEntity(createConveyor(0, 600));
 	
 

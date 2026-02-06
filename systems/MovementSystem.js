@@ -10,8 +10,8 @@ class MovementSystem {
                 entity.position.y = newY;
             }
             
-            //have conveyor push player
-            if (entity.playercontrolled && entity.playercontrolled.isGrounded) {
+            //have conveyor push other entities
+            if ((entity.playercontrolled && entity.playercontrolled.isGrounded) || entity.box) {
                 entity.position.x -= 2; 
             }
         }
