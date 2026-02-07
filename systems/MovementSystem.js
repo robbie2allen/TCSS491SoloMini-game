@@ -8,6 +8,7 @@ class MovementSystem {
 
                 entity.position.x = newX;
                 entity.position.y = newY;
+                
             }
             
             //have conveyor push other entities
