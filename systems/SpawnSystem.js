@@ -15,11 +15,15 @@ class SpawnSystem {
         }
 
         //spawn boxes off screen
+        let boxSeed = Math.random();
         if(totalBoxes <= MAX_BOXES) {
-            if(Math.random() >= 0.3) {
+            if(boxSeed >= 0.3) { //spawn small box
+                if(boxSeed >= 0.8) { //fall from ceiling
+                    gameEngine.addEntity(createBox((Math.random() * 1200), 0));
+                }
                 gameEngine.addEntity(createBox((Math.random() * (MAX_X - MIN_X) + MIN_X), (Math.random() * (MIN_Y - MAX_Y) + MAX_Y)));
             }
-            else
+            else //spawn big crate
                 gameEngine.addEntity(createCrate((Math.random() * (MAX_X - MIN_X) + MIN_X), (Math.random() * (MIN_Y - MAX_Y) + MAX_Y)));
             
         }
