@@ -56,7 +56,7 @@ class AnimationSystem {
             entity.sprite.frameY = frame.y;
 
             if (frame.width !== undefined) entity.sprite.frameWidth = frame.width;
-            if (frame.height !== undefined) entity.sprite.frameHeigh = frame.height;
+            if (frame.height !== undefined) entity.sprite.frameHeight = frame.height;
             return;
         }
 
