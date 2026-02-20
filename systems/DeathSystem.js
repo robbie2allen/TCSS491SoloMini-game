@@ -12,6 +12,8 @@ class DeathSystem {
     }
 
     resetGame(game) {
+
+        game.elapsedTime = 0;
         for (let entity of game.entities) {
             entity.removeFromWorld = true;
         }

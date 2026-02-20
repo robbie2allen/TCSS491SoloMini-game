@@ -1,6 +1,6 @@
 class SpawnSystem {
     update(deltaTime, game) {
-        const MAX_BOXES = 8;
+        const MAX_BOXES = 10;
         const MAX_X = 2400;
         const MIN_X = 1400;
         const MAX_Y = 0;

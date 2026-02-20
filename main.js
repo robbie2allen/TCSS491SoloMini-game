@@ -20,6 +20,7 @@ ASSET_MANAGER.downloadAll(() => {
 	gameEngine.addSystem(new RenderSystem());
 	gameEngine.addSystem(new DeathSystem());
 	gameEngine.addSystem(new SpawnSystem());
+	gameEngine.addSystem(new UISystem());
 
 	//Add entities
 	gameEngine.addEntity(createPlayer(275, 595, 275, 425));

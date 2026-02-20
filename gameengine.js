@@ -19,6 +19,10 @@ class GameEngine {
         this.wheel = null;
         this.keys = {};
 
+        //total runtime since reset
+        this.elapsedTime = 0;
+        this.bestTime = 0;
+
         // Options and the Details
         this.options = options || {
             debugging: false,
@@ -76,7 +80,13 @@ class GameEngine {
             this.rightclick = getXandY(e);
         });
 
-        this.ctx.canvas.addEventListener("keydown", event => this.keys[event.key] = true);
+        this.ctx.canvas.addEventListener("keydown", event => { 
+            if (event.key == ' ') {
+                event.preventDefault();
+            }
+            this.keys[event.key] = true
+            
+        });
         this.ctx.canvas.addEventListener("keyup", event => this.keys[event.key] = false);
     };
 

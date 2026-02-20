@@ -1,6 +1,6 @@
 class MovementSystem {
     update(deltaTime, game) {
-        const CONVEYOR_SPEED = 3;
+        var CONVEYOR_SPEED = 3 + game.elapsedTime * 0.05;
         for (let entity of game.entities) {
             if (entity.position && entity.velocity) {
                 const newX = entity.position.x + entity.velocity.dx * deltaTime;
@@ -19,7 +19,7 @@ class MovementSystem {
 
             //block player from going to far right
             if(entity.playercontrolled && entity.position.x > 1200-entity.collider.width) {
-                console.log(entity.position.x)
+                //console.log(entity.position.x)
                 entity.position.x = 1200-entity.collider.width;
             }
         }
