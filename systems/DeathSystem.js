@@ -19,7 +19,7 @@ class DeathSystem {
         }
 
         //re-add all entities
-        gameEngine.addEntity(createPlayer(275, 595, 275, 425));
+        gameEngine.addEntity(createPlayer());
         // gameEngine.addEntity(createBox(475, 515));
         // gameEngine.addEntity(createBox(675, 515));
         // gameEngine.addEntity(createBox(675, 515-80));

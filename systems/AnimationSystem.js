@@ -4,7 +4,7 @@ class AnimationSystem {
         for (let entity of game.entities) {
             if (entity.animator && entity.sprite) {
 
-                this.updateAnimation(entity);
+                this.updateAnimation(entity, game);
                 this.updateFrames(entity, deltaTime);
 
             }
@@ -22,10 +22,10 @@ class AnimationSystem {
     }
 
 
-    updateAnimation(entity) {
+    updateAnimation(entity, game) {
         if (entity.facing && entity.velocity) {
 
-            const isMoving = entity.velocity.dx !== 0 || entity.velocity.dy !== 0;
+            const isMoving =  game.keys['ArrowLeft'] || game.keys['a'] || game.keys['ArrowRight'] || game.keys['d'];
             const direction = entity.facing.direction;
 
 
@@ -64,10 +64,17 @@ class AnimationSystem {
         entity.animator.frameTimer += deltaTime;
 
         //update frame if timer passed duration
-        if (entity.animator.frameTimer >= anim.duration) {
+        if (entity.animator.frameTimer >= anim.duration && anim.loops) { //if animation loops
             entity.animator.frameTimer = 0;
             entity.animator.currentFrame = (entity.animator.currentFrame + 1) % anim.frames.length;
         }
+        //if animation does not loop
+        else if (entity.animator.frameTimer >= anim.duration && !anim.loops && entity.animator.currentFrame < anim.frames.length-1) {
+            entity.animator.frameTimer = 0;
+            entity.animator.currentFrame = (entity.animator.currentFrame + 1);
+        }
+
+        
 
         //update sprite to show current frame (sprite will be drawn by RenderSystem)
         const frame = anim.frames[entity.animator.currentFrame];

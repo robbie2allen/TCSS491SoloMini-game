@@ -9,6 +9,7 @@ function createConveyor(x, y) {
                 { x: 720, y: 0, width: 240, height: 15},
             ],
             duration: 0.12 + gameEngine.elapsedTime * 0.1,
+            loops: true
         }
     }
     const entity = {

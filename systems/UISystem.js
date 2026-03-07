@@ -5,7 +5,6 @@ class UISystem {
         const ctx = game.ctx;
 
         //update timer
-        console.log(game.elapsedTime);
         game.elapsedTime += deltaTime;
 
         if(game.elapsedTime > game.bestTime) {
@@ -13,12 +12,13 @@ class UISystem {
         }
             
         // Set up UI styling
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = rgb(203, 219, 252);
         ctx.font = '32px "Press Start 2P"';
         ctx.textBaseline = 'top';
         
         // Draw UI elements
         ctx.fillText("Time: " + game.elapsedTime.toFixed(1) + "   Best Time: " + game.bestTime.toFixed(1), 20, 20);
+        
 
     }
 }

@@ -23,13 +23,12 @@ ASSET_MANAGER.downloadAll(() => {
 	gameEngine.addSystem(new UISystem());
 
 	//Add entities
-	gameEngine.addEntity(createPlayer(275, 595, 275, 425));
+	gameEngine.addEntity(createPlayer());
 	// gameEngine.addEntity(createBox(475, 515));
 	// gameEngine.addEntity(createBox(675, 515));
 	// gameEngine.addEntity(createBox(675, 515-80));
 	// gameEngine.addEntity(createCrate(775, 515-80));
 	gameEngine.addEntity(createConveyor(0, 600));
-	
 
 	gameEngine.start();
 });
