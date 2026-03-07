@@ -1,20 +1,21 @@
 //Factory for a player
-function createPlayer(x = 550, y = 0, respawnX = 550, respawnY = 0) {
+function createPlayer(x = 550, y = 0, respawnX = 550, respawnY = 0, speed = 350) {
 
+    let dur = 52.5 / speed;
 
     const playerAnimations = {
         'idle-right': {
             frames: [
                 { x: 0, y: 0, width: 16, height: 24}
             ],
-            duration: 0.15,
+            duration: dur,
             loops: false
         },
         'idle-left': {
             frames: [
                 { x: 0, y: 24, width: 16, height: 24}
             ],
-            duration: 0.15,
+            duration: dur,
             loops: false
         },
          'walk-right': {
@@ -28,7 +29,7 @@ function createPlayer(x = 550, y = 0, respawnX = 550, respawnY = 0) {
                 { x: 96, y: 0, width: 16, height: 24},
                 { x: 112, y: 0, width: 16, height: 24}
             ],
-            duration: 0.15,
+            duration: dur,
             loops: true
         },
         'walk-left': {
@@ -42,35 +43,35 @@ function createPlayer(x = 550, y = 0, respawnX = 550, respawnY = 0) {
                 { x: 96, y: 24, width: 16, height: 24},
                 { x: 112, y: 24, width: 16, height: 24}
             ],
-            duration: 0.1,
+            duration: dur,
             loops: true
         },
         'jump-right': {
             frames: [
-                { x: 0, y: 48, width: 16, height: 24},
-                { x: 16, y: 48, width: 16, height: 24},
-                { x: 32, y: 48, width: 16, height: 24},
-                { x: 48, y: 48, width: 16, height: 24},
-                { x: 64, y: 48, width: 16, height: 24},
-                { x: 80, y: 48, width: 16, height: 24},
-                { x: 96, y: 48, width: 16, height: 24},
-                { x: 112, y: 48, width: 16, height: 24}
+                { x: 0, y: 48, width: 16, height: 23},
+                { x: 16, y: 48, width: 16, height: 23},
+                { x: 32, y: 48, width: 16, height: 23},
+                { x: 48, y: 48, width: 16, height: 23},
+                { x: 64, y: 48, width: 16, height: 23},
+                { x: 80, y: 48, width: 16, height: 23},
+                { x: 96, y: 48, width: 16, height: 23},
+                { x: 112, y: 48, width: 16, height: 23}
             ],
-            duration: 0.15,
+            duration: dur,
             loops: true
         },
         'jump-left': {
             frames: [
-                { x: 0, y: 72, width: 16, height: 24},
-                { x: 16, y: 72, width: 16, height: 24},
-                { x: 32, y: 72, width: 16, height: 24},
-                { x: 48, y: 72, width: 16, height: 24},
-                { x: 64, y: 72, width: 16, height: 24},
-                { x: 80, y: 72, width: 16, height: 24},
-                { x: 96, y: 72, width: 16, height: 24},
-                { x: 112, y: 72, width: 16, height: 24}
+                { x: 0, y: 72, width: 16, height: 23},
+                { x: 16, y: 72, width: 16, height: 23},
+                { x: 32, y: 72, width: 16, height: 23},
+                { x: 48, y: 72, width: 16, height: 23},
+                { x: 64, y: 72, width: 16, height: 23},
+                { x: 80, y: 72, width: 16, height: 23},
+                { x: 96, y: 72, width: 16, height: 23},
+                { x: 112, y: 72, width: 16, height: 23}
             ],
-            duration: 0.15,
+            duration: dur,
             loops: true
         }
     }
@@ -78,7 +79,7 @@ function createPlayer(x = 550, y = 0, respawnX = 550, respawnY = 0) {
     const entity = {
         removeFromWorld: false,
         position: new Position(x, y),
-        playercontrolled: new PlayerControlled(300, respawnX, respawnY),
+        playercontrolled: new PlayerControlled(speed, respawnX, respawnY),
         collider: new Collider(60, 120, 10, 0),
         velocity: new Velocity(0, 0),
         sprite: new Sprite(ASSET_MANAGER.getAsset("./assets/sprites/robonut.png"), 0, 0, 16, 24, 5, 5),

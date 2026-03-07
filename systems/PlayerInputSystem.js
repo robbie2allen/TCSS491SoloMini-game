@@ -9,7 +9,7 @@ class PlayerInputSystem {
                 entity.velocity.dx = 0;
 
                 const speed = entity.playercontrolled.speed;
-                const jumpHeight = speed * 2
+                const jumpHeight = speed * 1.7
 
                 //check which direction the player is moving
                 if (game.keys['ArrowUp'] || game.keys['w'] || game.keys[' ']) {
