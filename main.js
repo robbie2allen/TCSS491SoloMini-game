@@ -2,6 +2,8 @@ const gameEngine = new GameEngine();
 
 const ASSET_MANAGER = new AssetManager();
 
+const AUDIO_MANAGER = new AudioManager(ASSET_MANAGER);
+
 // QUEUE THE GAME MANIFEST
 ASSET_MANAGER.queueManifest(GameManifest.data);
 
@@ -10,6 +12,15 @@ ASSET_MANAGER.downloadAll(() => {
 	const ctx = canvas.getContext("2d");
 	ctx.imageSmoothingEnabled = false;
 	gameEngine.init(ctx);
+
+	AUDIO_MANAGER.awaitInitialize(canvas, () => {
+
+		//AUDIO_MANAGER.addAudio("Test", "./assets/audio/Victory.wav");
+		addAllMusic(AUDIO_MANAGER);
+		AUDIO_MANAGER.playLooped("Main_Music");
+		console.log("Audio Manager Initialized!");
+		//AUDIO_MANAGER.adjustVolume(0.3);
+	});
 
 	// Add systems (order matters!)
 	gameEngine.addSystem(new PlayerInputSystem());
@@ -24,10 +35,6 @@ ASSET_MANAGER.downloadAll(() => {
 
 	//Add entities
 	gameEngine.addEntity(createPlayer());
-	// gameEngine.addEntity(createBox(475, 515));
-	// gameEngine.addEntity(createBox(675, 515));
-	// gameEngine.addEntity(createBox(675, 515-80));
-	// gameEngine.addEntity(createCrate(775, 515-80));
 	gameEngine.addEntity(createConveyor(0, 600));
 
 	gameEngine.start();

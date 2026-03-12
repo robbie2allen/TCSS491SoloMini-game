@@ -15,6 +15,7 @@ class PlayerInputSystem {
                 if (game.keys['ArrowUp'] || game.keys['w'] || game.keys[' ']) {
                     // can only jump while grounded
                     if (entity.playercontrolled.isGrounded) {
+                        AUDIO_MANAGER.playOnce("Jump");
                         entity.velocity.dy = -jumpHeight;
                     }
                 }

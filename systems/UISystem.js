@@ -18,6 +18,9 @@ class UISystem {
         
         // Draw UI elements
         ctx.fillText("Time: " + game.elapsedTime.toFixed(1) + "   Best Time: " + game.bestTime.toFixed(1), 20, 20);
+
+        //mute if muted
+        AUDIO_MANAGER.setMuted(document.getElementById('muteToggle').checked)
         
 
     }
